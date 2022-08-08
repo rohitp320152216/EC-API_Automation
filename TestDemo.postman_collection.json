@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "82aca0a7-5a71-47a5-9b09-b3395a31392b",
+		"name": "TestDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4936209"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Git Pocket Guide\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(10000);\r",
+							"});\r",
+							"var schema = {\r",
+							"    books:{\r",
+							"        \r",
+							"            \r",
+							"   isbn:{\r",
+							"        type:'integer',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"   title:{\r",
+							"        type:'string',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"   subtitle:{\r",
+							"        type:'string',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"    author:{\r",
+							"        type:'string',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"    publish_date:{\r",
+							"        type:'integer',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"   publisher:{\r",
+							"        type:'string',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"pages:{\r",
+							"        type:'integer',\r",
+							"         minlength:1,\r",
+							"         maxlength:180\r",
+							"   },\r",
+							"\r",
+							"description:{\r",
+							"        type:'string',\r",
+							"         minlength:1\r",
+							"   },\r",
+							"website:{\r",
+							"        type:'string',\r",
+							"         minlength:1\r",
+							"   },\r",
+							"\r",
+							"}\r",
+							"    }\r",
+							"\r",
+							"\r",
+							"var responseBody = JSON.parse(responseBody);\r",
+							"pm.test('Schema is valid', function() {\r",
+							"pm.expect(tv4.validate(responseBody, schema)).to.be.true;\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://demoqa.com/BookStore/v1/Books",
+					"protocol": "https",
+					"host": [
+						"demoqa",
+						"com"
+					],
+					"path": [
+						"BookStore",
+						"v1",
+						"Books"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
